@@ -19,6 +19,7 @@ estate_data: make_estate_data.py
 	cp result/estate_condition.json ../webapp/fixture/estate_condition.json
 
 verification_data: ./make_verification_data
+	cp ../provisioning/ansible/roles/web-bootstrap/files/my.cnf ../webapp/docker-compose/mysql/my.cnf
 	rm -rf ./result/verification_data
 	docker-compose -f ../webapp/docker-compose/go.yaml down -v
 	docker-compose -f ../webapp/docker-compose/go.yaml up -d mysql api-server
