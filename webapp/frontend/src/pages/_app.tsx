@@ -9,6 +9,7 @@ import type { FC } from 'react'
 import type { AppProps } from 'next/app'
 
 import 'leaflet/dist/leaflet.css'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 const useStyles = makeStyles(() =>
   createStyles({

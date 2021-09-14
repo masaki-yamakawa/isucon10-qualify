@@ -64,6 +64,11 @@ const TopPage = () => {
             <TouchAppIcon /> なぞって検索
           </Button>
         </Link>
+        <Link href='/estate/nazottemb'>
+          <Button variant='contained' color='secondary' className={classes.link}>
+            <TouchAppIcon /> なぞって検索 By MapBox
+          </Button>
+        </Link>
       </Paper>
       {lowPricedEstates && (
         <Paper className={classes.paper}>
