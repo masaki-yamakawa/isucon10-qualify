@@ -7,4 +7,4 @@ node_modules
 bower_components
 
 webapp/docker-compose/mysql/*
-!webapp/docker-compose/mysql/my.cnf
+!webapp/docker-compose/mysql/Dockerfile
