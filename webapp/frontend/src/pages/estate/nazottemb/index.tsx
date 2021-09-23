@@ -8,9 +8,9 @@ const NazotteMapBoxPage: React.FC = () => {
   const [mapInstance, setMapInstance] = useState<mapboxgl.Map>();
   const mapContainer = useRef<HTMLDivElement | null>(null);
 
-  const [lng, setLng] = useState(142.0);
-  const [lat, setLat] = useState(40.0);
-  const [zoom, setZoom] = useState(4);
+  const [lng, setLng] = useState(139.77044378);
+  const [lat, setLat] = useState(35.67832667);
+  const [zoom, setZoom] = useState(9);
 
   const [mapStyle, setMapStyle] = useState('satellite');
 
