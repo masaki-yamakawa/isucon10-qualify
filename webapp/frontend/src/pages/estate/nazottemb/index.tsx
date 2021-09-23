@@ -12,12 +12,12 @@ const NazotteMapBoxPage: React.FC = () => {
   const [lat, setLat] = useState(35.67832667);
   const [zoom, setZoom] = useState(9);
 
-  const [mapStyle, setMapStyle] = useState('satellite');
+  const [mapStyle, setMapStyle] = useState('satellite-streets-v11');
 
   const changeStyle = (e: any) => {
-    console.log("changeStyle:style=" + e.target.id);
+    console.log("changeStyle:style=" + e.target.value);
     setMapStyle(e.target.value);
-    mapInstance.setStyle('mapbox://styles/mapbox/' + e.target.id);
+    mapInstance.setStyle('mapbox://styles/mapbox/' + e.target.value);
   };
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const NazotteMapBoxPage: React.FC = () => {
 
     const map = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/satellite-v9',
+      style: 'mapbox://styles/mapbox/' + mapStyle,
       center: [lng, lat],
       zoom: zoom
     });
@@ -51,19 +51,22 @@ const NazotteMapBoxPage: React.FC = () => {
       </div>
       <div className="mapstyleStyle">
         <label>
-          <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" onChange={changeStyle} checked={mapStyle === 'satellite'} />satellite
+          <input type="radio" name="rtoggle" value="satellite-v9" onChange={changeStyle} checked={mapStyle === 'satellite-v9'} />satellite
         </label>
         <label>
-          <input id="light-v10" type="radio" name="rtoggle" value="light" onChange={changeStyle} checked={mapStyle === 'light'} />light
+          <input type="radio" name="rtoggle" value="light-v10" onChange={changeStyle} checked={mapStyle === 'light-v10'} />light
         </label>
         <label>
-          <input id="dark-v10" type="radio" name="rtoggle" value="dark" onChange={changeStyle} checked={mapStyle === 'dark'} />dark
+          <input type="radio" name="rtoggle" value="dark-v10" onChange={changeStyle} checked={mapStyle === 'dark-v10'} />dark
         </label>
         <label>
-          <input id="streets-v11" type="radio" name="rtoggle" value="streets" onChange={changeStyle} checked={mapStyle === 'streets'} />streets
+          <input type="radio" name="rtoggle" value="streets-v11" onChange={changeStyle} checked={mapStyle === 'streets-v11'} />streets
         </label>
         <label>
-          <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" onChange={changeStyle} checked={mapStyle === 'outdoors'} />outdoors
+          <input type="radio" name="rtoggle" value="outdoors-v11" onChange={changeStyle} checked={mapStyle === 'outdoors-v11'} />outdoors
+        </label>
+        <label>
+          <input type="radio" name="rtoggle" value="satellite-streets-v11" onChange={changeStyle} checked={mapStyle === 'satellite-streets-v11'} />imagery
         </label>
       </div>
       <div className='map-container' ref={mapContainer} />
