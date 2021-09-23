@@ -7,16 +7,29 @@
     height: 100%;
     width: 100%;
 }
-  
+
 .sidebarStyle {
     display: inline-block;
     position: absolute;
-    top: 5;
-    left: 5;
-    margin: 5px;
+    top: 70px;
+    left: 5px;
+    margin: 0px;
     background-color: #404040;
     color: #ffffff;
     z-index: 1 !important;
     padding: 6px;
     font-weight: bold;
+}
+
+.mapstyleStyle {
+  display: inline-block;
+  position: absolute;
+  top: 105px;
+  left: 5px;
+  margin: 0px;
+  background-color: #404040;
+  color: #ffffff;
+  z-index: 1 !important;
+  padding: 6px;
+  font-weight: bold;
 }
