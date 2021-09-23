@@ -1,48 +1,46 @@
 import React, { useEffect, useState, useRef } from 'react'
 import mapboxgl from 'mapbox-gl'
 
-mapboxgl.accessToken = 'pk.xxx'
+mapboxgl.accessToken = 'pk.eyJ1IjoibWFzYWtpLXlhbWFrYXdhIiwiYSI6ImNrcWE3NGRsdDA3ZmQydnFzazNodmQzcDkifQ.abGf5qHeNi1yU0hdU_xElQ'
 
-const mapStyle: mapboxgl.Style = {
-  version: 8,
-  sources: {
-    OSM: {
-      type: 'raster',
-      tiles: ['http://tile.openstreetmap.org/{z}/{x}/{y}.png'],
-      tileSize: 256,
-      attribution:
-        '<a href="http://osm.org/copyright">© OpenStreetMap contributors</a>',
-    },
-  },
-  layers: [
-    {
-      id: 'OSM',
-      type: 'raster',
-      source: 'OSM',
-      minzoom: 0,
-      maxzoom: 18,
-    },
-  ],
-};
 
 const NazotteMapBoxPage: React.FC = () => {
-  const [mapInstance, setMapInstance] = useState<mapboxgl.Map>();
   const mapContainer = useRef<HTMLDivElement | null>(null);
+
+  const [lng, setLng] = useState(142.0);
+  const [lat, setLat] = useState(40.0);
+  const [zoom, setZoom] = useState(4);
 
   useEffect(() => {
     if (!mapContainer.current) return;
 
     const map = new mapboxgl.Map({
       container: mapContainer.current,
-      style: mapStyle,
-      center: [142.0, 40.0],
-      zoom: 4,
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [lng, lat],
+      zoom: zoom
     });
-    setMapInstance(map);
+
+    map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+
+    map.on('move', () => {
+      setLng(map.getCenter().lng.toFixed(4));
+      setLat(map.getCenter().lat.toFixed(4));
+      setZoom(map.getZoom().toFixed(2));
+    });
+
+    return () => map.remove();
   }, []);
 
   return (
-    <div style={{ height: 700 }} ref={mapContainer} />
+    <div>
+      <div className='sidebarStyle'>
+        <div>
+          Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+        </div>
+      </div>
+      <div className='map-container' ref={mapContainer} />
+    </div>
   );
 };
 

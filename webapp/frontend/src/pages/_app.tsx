@@ -10,6 +10,7 @@ import type { AppProps } from 'next/app'
 
 import 'leaflet/dist/leaflet.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import './estate/nazottemb/map.css'
 
 const useStyles = makeStyles(() =>
   createStyles({
