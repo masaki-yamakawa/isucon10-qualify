@@ -23,6 +23,7 @@
     "@material-ui/core": "^4.9.14",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.54",
+    "@types/mapbox-gl": "^2.4.2",
     "@types/next": "^9.0.0",
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
