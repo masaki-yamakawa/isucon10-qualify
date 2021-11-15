@@ -58,7 +58,7 @@ export const NavBar: FC = () => {
             <TouchAppIcon /> なぞって検索
           </MenuItem>
           <MenuItem onClick={async () => { await router.push('/estate/nazottemb') }}>
-            <TouchAppIcon /> なぞって検索 by MapBox
+            <TouchAppIcon /> MapBox検索
           </MenuItem>
         </Menu>
         <Link href='/'>
