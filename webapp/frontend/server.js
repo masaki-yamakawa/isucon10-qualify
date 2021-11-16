@@ -6,7 +6,7 @@ const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
-const apiHost = process.env.API_HOST || 'http://localhost'
+const apiHost = process.env.API_HOST || 'http://35.76.86.45'
 const apiPort = process.env.API_PORT || '1323'
 
 app.prepare().then(() => {

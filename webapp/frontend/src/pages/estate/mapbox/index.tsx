@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import mapboxgl from 'mapbox-gl'
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibWFzYWtpLXlhbWFrYXdhIiwiYSI6ImNrcWE3NGRsdDA3ZmQydnFzazNodmQzcDkifQ.abGf5qHeNi1yU0hdU_xElQ'
+mapboxgl.accessToken = 'TODO'
 
 const MapboxPage: React.FC = () => {
   const [mapInstance, setMapInstance] = useState<mapboxgl.Map>();
